@@ -1,0 +1,152 @@
+/* Header Styles for UTCN Grafica Course Platform */
+
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+nav {
+    padding: 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    min-height: 70px;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+nav li {
+    margin: 0;
+    position: relative;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    position: relative;
+}
+
+nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e0f2fe;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Active page indicator */
+nav li a[style*="color: #3498db"] {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #e0f2fe !important;
+    font-weight: 600;
+}
+
+/* User Menu */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-menu span {
+    font-weight: 600;
+    color: #e0f2fe;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: rgba(220, 38, 38, 0.8) !important;
+    color: white !important;
+    padding: var(--spacing-xs) var(--spacing-md) !important;
+    border-radius: var(--radius-md) !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.logout-btn:hover {
+    background-color: rgba(185, 28, 28, 0.9) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+    
+    nav li {
+        width: 100%;
+    }
+    
+    nav li a {
+        width: 100%;
+        justify-content: center;
+        padding: var(--spacing-md);
+    }
+    
+    .user-menu {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .logout-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .container {
+        padding: var(--spacing-sm);
+    }
+    
+    nav li a {
+        font-size: 0.9rem;
+        padding: var(--spacing-sm);
+    }
+} 

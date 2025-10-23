@@ -1,0 +1,45 @@
+# Use index.php as the front controller
+DirectoryIndex index.php
+
+# Improve character encoding defaults
+AddDefaultCharset UTF-8
+
+# Disable MultiViews to avoid content-negotiation quirks with clean URLs
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Set base; adjust if the site is deployed in a subdirectory
+    RewriteBase /
+
+    # Serve existing files and directories as-is
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Otherwise, route everything to index.php (front controller)
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# As a fallback for Apache 2.4+, you can alternatively use (in VirtualHost context, not here):
+# FallbackResource /index.php
+
+# Enable gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+</IfModule>
+
+# Cache static files
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/ico "access plus 1 month"
+    ExpiresByType image/icon "access plus 1 month"
+    ExpiresByType text/ico "access plus 1 month"
+    ExpiresByType application/ico "access plus 1 month"
+</IfModule>
